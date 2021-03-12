@@ -22,14 +22,16 @@
          $songnames = file("songs/$playlist");
          foreach ($songnames as $songname)
           {
-              $song = glob("songs/$songname");
+              $songs = array();
+              array_push($songs, "songs/$songname");
+              foreach ($songs as $song){
          ?>
          <ul id="musiclist">
              <li class="mp3item">
-                 <a href="<?= $song ?>"><?= $songname ?> <? filesize($song) ?></a>
+                 <a href="<?= $song ?>"><?= $songname ?></a>
              </li>
          </ul>
-         <?php }}
+         <?php }}}
         else{
 
      $tracks = glob("songs/*.mp3");
